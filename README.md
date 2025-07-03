@@ -1,6 +1,6 @@
 This document describes continuous integration and continuous delivery (CI/CD) for a Java application. After submitting the code to your GitHub repository, Jenkins will start the pipeline. It organizes static code analysis using SonarQube, builds the application using Maven, saves the artifacts to Nexus and finally deploys them to the Tomcat server for execution. The following sections dive into the basic setup steps: installing the tool, configuring (SonarQube on Maven, Maven on Nexus, and finally Tomcat), creating a pipeline, and troubleshooting potential bugs. **At the end there is an ester egg** 🥚.hey
 
-## Flow Diagram 
+i## Flow Diagram 
 
 To have a better understanding on what we are doing its important you under the flow. This implementation is quite normal keep updated i will post the pipeline with docker and with pipeline script. 
 
