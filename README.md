@@ -1735,7 +1735,7 @@ I already had .class files compiled so 1. worked for me.
 
 4. **Tomcat Error**
 
-Just when i thought everything is alright another error slammed on my face. 
+iJust when i thought everything is alright another error slammed on my face. 
 
 + I dont have log file for this one but error was no html page to view the project. Since my project is a pretty basic java hello-world project. i didnt have any html page to view that so i had to create one **but where??**
 + If you remember we created '/webapps' dir, which typically servers as the default deployment path for Tomcat installations. So our `index.html` should be in this folder.
