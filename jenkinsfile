@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    tools {
+        // Ensure SonarQube Scanner is installed and named here
+        sonarQubeScanner 'SonarQube Scanner'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                // Your build commands, e.g. mvn clean install
+            }
+        }
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarQubeServer') {
+                    sh 'mvn sonar:sonar'
+                    // Or if using sonar-scanner CLI:
+                    // sh 'sonar-scanner'
+                }
+            }
+        }
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+    }
+}
+
