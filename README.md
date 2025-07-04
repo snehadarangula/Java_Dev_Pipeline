@@ -40,7 +40,7 @@ We are using 5 tools mainly and for easy of this tutorial i will showing you how
 So, I am using multiple VM's to manage each application, one for Maven and nexus repository, one for sonar, one for tomcat and lastly one for jenkinns. 
 
 Inititate EC2 you find that in my ollama repo, for all this i am using **t3a.medium** instance you can use instance of your choice. 
-yes, using docker surely sovles all these problmes but get th e confidence and command over basics before moving on to containersization platform.
+yes, using docker surely sovles all these problmes but get thiii e confidence and command over basics before moving on to containersization platform.
 
 
 ### 1. Maven Installation 
