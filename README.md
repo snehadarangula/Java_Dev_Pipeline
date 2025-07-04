@@ -40,7 +40,7 @@ We are using 5 tools mainly and for easy of this tutorial i will showing you how
 So, I am using multiple VM's to manage each application, one for Maven and nexus repository, one for sonar, one for tomcat and lastly one for jenkinns. 
 
 Inititate EC2 you find that in my ollama repo, for all this i am using **t3a.medium** instance you can use instance of your choice. 
-yes, using docker surely sovles all these problmes but get confidence and command over basics before moving on to containersization platform.
+yes, using docker surely sovles all these problmes but get the confidence and command over basics before moving on to containersization platform.
 
 
 ### 1. Maven Installation 
@@ -1735,7 +1735,7 @@ I already had .class files compiled so 1. worked for me.
 
 4. **Tomcat Error**
 
-iJust when i thought everything is alright another error slammed on my face. 
+Just when i thought everything is alright another error slammed on my face. 
 
 + I dont have log file for this one but error was no html page to view the project. Since my project is a pretty basic java hello-world project. i didnt have any html page to view that so i had to create one **but where??**
 + If you remember we created '/webapps' dir, which typically servers as the default deployment path for Tomcat installations. So our `index.html` should be in this folder.
