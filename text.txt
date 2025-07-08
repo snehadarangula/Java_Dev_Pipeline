@@ -172,4 +172,14 @@ You can integrate SonarQube in different types of jobs. Here’s a typical pipel
 
 _______________________________install maven
 installed the docker in EC2 instance
-
+_________________________________________________________________________________________________
+GitHub  --->  Jenkins build (mvn package)
+                 |
+                 v
+           SonarQube scan (mvn sonar:sonar)
+                 |
+                 v
+        Deploy to Nexus (mvn deploy)
+                 |
+                 v
+     Artifact available to other environments
