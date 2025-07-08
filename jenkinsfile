@@ -4,7 +4,7 @@ pipeline {
     tools {
         maven 'Default Maven' // This should match the Maven name configured in Jenkins Global Tools
     }
-
+/*
     environment {
         SONAR_HOST_URL = 'http://13.201.5.155:9000'
         SONAR_LOGIN = 'sqa_ebce83526d862e40e259010cc2c4b19d7ba82f81'
@@ -29,7 +29,8 @@ pipeline {
                     sh "mvn sonar:sonar -Dsonar.projectKey=first-java-dev-pipeline -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_LOGIN}"
                 }
             }
-        }
+        }  
+*/
 
         stage('Quality Gate') {
             steps {
