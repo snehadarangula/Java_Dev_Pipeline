@@ -1,0 +1,175 @@
+jenkins
+honey 
+honey123
+___________________________
+sonar
+admin
+honey123
+_____________________________
+
+
+>>create EC2 instance
+
+>>run on gitbash
+
+ ---------------To connect to instance
+>>$ ssh -i "C:\Users\dsneha\Downloads\colors.pem" ubuntu@13.203.228.81
+     ssh -i "path to key " ubuntuusernam@publicid of instance
+   
+
+
+>> touch docker.sh
+>> ls
+
+ >>vi docker.sh
+
+
+*************************add dockerfile content**********************
+
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
+#!/bin/bash
+
+# Update package index
+sudo apt update
+
+# Install dependencies
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+# Add Docker GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+  sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Add Docker repository
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
+  https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Update package index again
+sudo apt update
+
+# Install Docker
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+
+# Enable and start Docker
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl ststus docker
+# Optional: Add user to docker group
+sudo usermod -aG docker "$USER"
+
+
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+esc+ :wq
+
+
+
+ >>cat docker.sh
+
+
+ubuntu@ip-172-31-1-35:~$ chmod 777 docker.sh   *********to give excutable permissions**********
+ubuntu@ip-172-31-1-35:~$ ./docker.sh        **** to run the docker file*****
+ubuntu@ip-172-31-1-35:~$ sudo systemctl status docker
+***********go to dockerhub then select any Jenkins versions********************
+ubuntu@ip-172-31-1-35:~$ sudo docker pull jenkins/Jenkins  ****** Jenkins/Jenkins is an immage*********
+ubuntu@ip-172-31-1-35:~$ sudo docker image ls
+ubuntu@ip-172-31-1-35:~$ sudo docker login
+*********************to create the container******************
+ubuntu@ip-172-31-1-35:~$ sudo docker run --name smartvision -d -p 8080:8080 jenkins/jenkins    ****to run the image in container this command useed******
+                         sudo docker run --name containername detachmode port instanceportnumber:imageportnumber 
+
+
+*********************go to security and add inbound as all traffic and save************ 
+
+***********************publickey:8080 in new browser tab************
+http://13.203.228.81:8080/
+
+ubuntu@ip-172-31-10-145:~$ sudo docker container ls
+ubuntu@ip-172-31-10-145:~$ sudo docker exec -it 874d4a1edc4b bin/bash  *********to connect to the container*********
+jenkins@874d4a1edc4b:/$ cat var/jenkins_home/secrets/initialAdminPassword
+
+now copy password from bash and paste in Jenkins ui
+
+********************************************************************
+creating Jenkins freestyle job
+cd /path/to/unzipped-folder
+git init
+
+vi test.txt
+i
+esc+:wq
+git status
+
+git add .
+
+git commit -m "Initial commit from ZIP"
+git remote add origin https://github.com/snehadarangula/Java_Dev_Pipeline.git
+git pull --rebase origin main  *****if we are pushing for firsttime then we need to pull and then push *******
+
+git branch -M main
+git push -u origin main
+
+
+**********
+
+
+token
+http://15.207.111.35:8080/github-webhook/
+http://13.203.228.81:8080/job/nerchuko/
+
+********************************************************************************************************************************************************
+>>start the instance and connect 
+ connect the ubuntu to instance
+ ssh -i "C:\Users\dsneha\Downloads\colors.pem" ubuntu@15.207.111.35
+
+>>run to login the docker 
+sudo docker login
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker
+
+>>to run image on container
+sudo docker image ls
+sudo docker container ls
+sudo docker run --name smartvision -d -p 8080:8080 jenkins/jenkins 
+sudo docker container ls
+
+http://13.203.228.81:8080/
+
+sudo docker exec -it 874d4a1edc4b bin/bash
+cat /var/jenkins_home/secrets/initialAdminPassword
+
+
+___________________________________________SonarQube
+
+Step 2: Install SonarQube Scanner Plugin in Jenkins
+1. Go to Jenkins Dashboard > Manage Jenkins > Manage Plugins.
+2. Under Available tab, search for SonarQube Scanner.
+3. Install it and restart Jenkins if required.
+
+
+Step 3: Configure SonarQube in Jenkins
+1. Go to Manage Jenkins > Configure System.
+2. Scroll to SonarQube servers section.
+3. Click Add SonarQube and fill in:
+Name: Any identifier (e.g., SonarQubeServer)
+Server URL: Your SonarQube URL (e.g., http://localhost:9000)
+Server authentication token: (recommended) Generate a token in SonarQube under My Account > Security and paste here.
+4. Save the configuration.
+
+Step 4: Configure SonarQube Scanner
+1. Go to Manage Jenkins > Global Tool Configuration.
+2. Find SonarQube Scanner section.
+3. Add a new SonarQube Scanner installation or configure automatic installation.
+
+Step 5: Add SonarQube analysis to your Jenkins job
+You can integrate SonarQube in different types of jobs. Here’s a typical pipeline example.
+
+
+
+
+
+_______________________________install maven
+installed the docker in EC2 instance
+
