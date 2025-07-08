@@ -112,7 +112,7 @@ under the License.
   <servers>
 
   <server>
-    <id>nexus-releases</id>
+    <id>nexus-repo</id>
     <username>admin</username>
     <password>honey</password>
   </server>
