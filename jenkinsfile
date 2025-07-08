@@ -6,16 +6,13 @@ pipeline {
         sonarQubeScanner 'SonarQube Scanner'
         maven 'Default Maven' // This should match the Maven name configured in Jenkins Global Tools
     }
-
     environment {
         SONAR_HOST_URL = 'http://13.201.5.155:9000'
         SONAR_LOGIN = 'sqa_77f0f5fd6912ffb86bc5ae38e290bd797c2ebe50'
     }
 
     stages {
-@@ -12,30 +16,27 @@ pipeline {
-                checkout scm
-            }
+
         }
 
         stage('Build') {
@@ -24,15 +21,7 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
-        //stage('SonarQube analysis') {
-          //  steps {
-            //    withSonarQubeEnv('SonarQubeServer') {
-            //        sh 'mvn sonar:sonar'
-                    // Or if using sonar-scanner CLI:
-                    // sh 'sonar-scanner'
-              //  }
-           // }
-      //  }
+        
 
   stage('SonarQube Analysis') {
     def mvn = tool 'Default Maven';
