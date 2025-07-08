@@ -110,6 +110,19 @@ under the License.
    | Authentication profiles can be used whenever maven must make a connection to a remote server.
    |-->
   <servers>
+
+  <server>
+    <id>nexus-releases</id>
+    <username>admin</username>
+    <password>honey</password>
+  </server>
+  <server>
+    <id>nexus-snapshots</id>
+    <username>admin</username>
+    <password>honey</password>
+  </server>
+
+
     <!-- server
      | Specifies the authentication information to use when connecting to a particular server, identified by
      | a unique name within the system (referred to by the 'id' attribute below).
@@ -117,17 +130,7 @@ under the License.
      | NOTE: You should either specify username/password OR privateKey/passphrase, since these pairings are
      |       used together.
     | -->
-    <server>
-      <id>nexus-releases</id>
-      <username>admin</username>
-      <password>qwerty1234</password>
-    </server>
-
-    <server>
-      <id>nexus-snapshots</id>
-      <username>admin</username>
-      <password>qwerty1234</password>
-    </server>
+   
 
     <!-- Another sample, using keys to authenticate.
     <server>
